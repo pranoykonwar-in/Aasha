@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aasha - Daily Routine Recall Instructions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Atkinson+Hyperlegible+Next:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "background": "#f8f9ff",
+                "on-error": "#ffffff",
+                "surface-container": "#e6eeff",
+                "secondary-fixed": "#ffdcc3",
+                "on-tertiary-fixed-variant": "#474836",
+                "secondary": "#904d00",
+                "error-container": "#ffdad6",
+                "on-primary-fixed": "#002201",
+                "on-primary-fixed-variant": "#23501e",
+                "inverse-primary": "#a1d494",
+                "on-tertiary": "#ffffff",
+                "surface": "#f8f9ff",
+                "on-tertiary-fixed": "#1b1d0e",
+                "surface-container-low": "#eff4ff",
+                "on-secondary-fixed-variant": "#6e3900",
+                "secondary-fixed-dim": "#ffb77d",
+                "on-background": "#121c2a",
+                "tertiary-fixed": "#e4e4cc",
+                "primary-fixed-dim": "#a1d494",
+                "tertiary": "#393a29",
+                "tertiary-fixed-dim": "#c8c8b0",
+                "on-error-container": "#93000a",
+                "primary-container": "#2d5a27",
+                "on-primary-container": "#9dd090",
+                "on-secondary-container": "#663500",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed": "#2f1500",
+                "outline-variant": "#c2c9bb",
+                "secondary-container": "#fe932c",
+                "on-tertiary-container": "#c3c4ac",
+                "on-secondary": "#ffffff",
+                "outline": "#72796e",
+                "primary-fixed": "#bcf0ae",
+                "inverse-on-surface": "#eaf1ff",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-high": "#dee9fc",
+                "on-surface-variant": "#42493e",
+                "surface-bright": "#f8f9ff",
+                "surface-variant": "#d9e3f6",
+                "surface-tint": "#3b6934",
+                "surface-dim": "#d0dbed",
+                "surface-container-highest": "#d9e3f6",
+                "primary": "#154212",
+                "on-surface": "#121c2a",
+                "inverse-surface": "#27313f",
+                "tertiary-container": "#50513f"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "stack-md": "24px",
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "margin-mobile": "20px",
+                "stack-lg": "48px",
+                "stack-sm": "12px",
+                "touch-target-min": "56px"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Atkinson Hyperlegible Next"
+                ],
+                "body-md": [
+                        "Atkinson Hyperlegible Next"
+                ],
+                "button": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-lg": [
+                        "Atkinson Hyperlegible Next"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "30px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "button": [
+                        "20px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopAppBar Shell (Hidden nav since this is an instruction screen - linear flow) -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim border-b border-outline-variant/10 flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop z-40">
+<div class="flex items-center gap-4">
+<button class="h-touch-target-min w-touch-target-min flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 text-primary">
+<span aria-label="Close Instructions" class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<div class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary dark:text-primary-fixed">
+        Aasha
+    </div>
+<div class="flex items-center gap-4">
+<!-- Empty placeholder for balance -->
+</div>
+</header>
+<main class="flex-grow pb-[120px] md:pb-margin-desktop">
+<div class="max-w-2xl mx-auto px-margin-mobile md:px-0 pt-8">
+<!-- Header Section -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-2">Daily Routine Recall</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Let's remember your day.</p>
+</div>
+<!-- Main Visual: Routine Cards (Bento-inspired grid) -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-stack-lg">
+<!-- Card 1: Wake Up -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-16 h-16 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Wake Up</span>
+</div>
+<!-- Card 2: Brush Teeth -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">face</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Brush Teeth</span>
+</div>
+<!-- Card 3: Breakfast -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-16 h-16 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">bakery_dining</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Breakfast</span>
+</div>
+<!-- Card 4: Medicine -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 flex flex-col items-center justify-center text-center shadow-sm">
+<div class="w-16 h-16 rounded-full bg-primary-container/10 text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">medication</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Medicine</span>
+</div>
+</div>
+<!-- Instructions -->
+<div class="bg-surface-container-low rounded-xl p-6 mb-stack-md border border-outline-variant/10">
+<h2 class="font-headline-md text-headline-md text-on-background mb-4">How to play:</h2>
+<ol class="space-y-6">
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-lg text-label-lg shrink-0 mt-1">1</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-1">Look at the activities.</p>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-lg text-label-lg shrink-0 mt-1">2</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-1">Remember the order.</p>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-lg text-label-lg shrink-0 mt-1">3</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant pt-1">Put them in your usual order.</p>
+</li>
+</ol>
+</div>
+<!-- Game Info & Personalization Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter mb-stack-lg">
+<!-- Game Info -->
+<div class="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6 flex flex-col justify-center shadow-sm">
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">info</span>
+<h3 class="font-label-lg text-label-lg text-on-background">Game Details</h3>
+</div>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-body-md">
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-outline/50"></span> Rounds: 5</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-outline/50"></span> Difficulty: Easy</li>
+<li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-outline/50"></span> Time: ~5 minutes</li>
+</ul>
+</div>
+<!-- Personalization Note -->
+<div class="bg-secondary-container/10 border border-secondary/20 rounded-xl p-6 flex flex-col shadow-sm">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<h3 class="font-label-lg text-label-lg text-on-background">Personalized for You</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Your routine can be personalized. Your caregiver can add activities that are part of your everyday life.</p>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-4 items-center">
+<button class="w-full md:w-auto min-w-[280px] h-touch-target-min bg-primary text-on-primary font-button text-button rounded-full px-8 hover:bg-primary-container hover:text-on-primary-container active:scale-95 transition-all flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                Start Game
+            </button>
+<button class="w-full md:w-auto min-w-[280px] h-touch-target-min bg-surface-container-lowest border-2 border-primary text-primary font-button text-button rounded-full px-8 hover:bg-surface-container-low active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">record_voice_over</span>
+                Hear Instructions
+            </button>
+<a class="mt-4 font-label-lg text-label-lg text-primary hover:text-primary-container underline underline-offset-4 active:opacity-70 transition-opacity" href="#">
+                Back to Games
+            </a>
+</div>
+</div>
+</main>
+<!-- Note: Bottom Navigation is hidden as this is a linear task flow (Instructions -> Game), adhering to the suppression rule. -->
+</body></html>

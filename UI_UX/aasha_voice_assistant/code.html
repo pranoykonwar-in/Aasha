@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aasha Voice Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#c2c9bb",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#474836",
+                      "on-primary-fixed": "#002201",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "background": "#f8f9ff",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#bcf0ae",
+                      "on-background": "#121c2a",
+                      "on-primary-container": "#9dd090",
+                      "on-tertiary-container": "#c3c4ac",
+                      "surface-container": "#e6eeff",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-high": "#dee9fc",
+                      "inverse-on-surface": "#eaf1ff",
+                      "inverse-primary": "#a1d494",
+                      "tertiary-fixed": "#e4e4cc",
+                      "tertiary-fixed-dim": "#c8c8b0",
+                      "primary-fixed-dim": "#a1d494",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#ffb77d",
+                      "surface-tint": "#3b6934",
+                      "on-secondary-fixed": "#2f1500",
+                      "on-tertiary-fixed": "#1b1d0e",
+                      "primary-container": "#2d5a27",
+                      "surface-dim": "#d0dbed",
+                      "secondary-fixed": "#ffdcc3",
+                      "primary": "#154212",
+                      "surface-container-low": "#eff4ff",
+                      "secondary": "#904d00",
+                      "tertiary": "#393a29",
+                      "tertiary-container": "#50513f",
+                      "surface-bright": "#f8f9ff",
+                      "secondary-container": "#fe932c",
+                      "on-secondary-container": "#663500",
+                      "outline": "#72796e",
+                      "error": "#ba1a1a",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#d9e3f6",
+                      "on-surface-variant": "#42493e",
+                      "on-surface": "#121c2a",
+                      "on-primary-fixed-variant": "#23501e",
+                      "inverse-surface": "#27313f",
+                      "surface-variant": "#d9e3f6"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "12px",
+                      "gutter": "24px",
+                      "stack-lg": "48px",
+                      "margin-desktop": "64px",
+                      "margin-mobile": "20px",
+                      "stack-md": "24px",
+                      "touch-target-min": "56px"
+              },
+              "fontFamily": {
+                      "label-lg": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "button": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "body-md": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "label-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "button": [
+                              "20px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .pulse-ring {
+            animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        @keyframes pulse {
+            to {
+                box-shadow: 0 0 0 45px rgba(21, 66, 18, 0);
+            }
+        }
+        
+        .wave {
+            animation: wave 1.5s ease-in-out infinite alternate;
+        }
+        .wave:nth-child(2) { animation-delay: 0.2s; }
+        .wave:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes wave {
+            0% { transform: scaleY(0.5); }
+            100% { transform: scaleY(1.5); }
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-lg min-h-screen pb-[110px] md:pb-0">
+<!-- Top Navigation -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant/10 w-full top-0 sticky z-40">
+<div class="flex justify-between items-center h-[72px] px-margin-mobile md:px-margin-desktop w-full max-w-4xl mx-auto">
+<button aria-label="Go back" class="flex items-center gap-2 p-2 hover:bg-surface-container-high transition-colors rounded-xl text-primary font-label-lg active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined text-[32px]">arrow_back</span>
+<span class="hidden md:inline">Back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg font-bold text-primary">Aasha</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop pt-8 pb-32">
+<!-- Header Text -->
+<div class="text-center mb-stack-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary font-bold mb-2">Talk to Aasha</h2>
+<p class="font-body-lg text-on-surface-variant">I'm here to help.</p>
+</div>
+<!-- Voice States Indicators -->
+<div class="flex justify-center gap-4 mb-12">
+<div class="px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-lg flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-on-primary-container"></span> Idle
+            </div>
+<!-- Hidden states for demonstration, would be toggled via JS -->
+<div class="hidden px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg flex items-center gap-2">
+                Listening...
+            </div>
+<div class="hidden px-4 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-label-lg flex items-center gap-2">
+                Processing...
+            </div>
+<div class="hidden px-4 py-2 rounded-full bg-secondary-container text-on-secondary-container font-label-lg flex items-center gap-2">
+                Speaking
+            </div>
+</div>
+<!-- Main Voice Area -->
+<div class="flex flex-col items-center justify-center mb-stack-lg relative">
+<button aria-label="Tap to speak" class="relative w-48 h-48 rounded-full bg-primary flex flex-col items-center justify-center text-on-primary shadow-lg hover:bg-primary/90 active:scale-95 transition-all duration-300 group pulse-ring">
+<span class="material-symbols-outlined text-[72px] mb-2 group-hover:scale-110 transition-transform">mic</span>
+<span class="font-label-lg">Tap to speak</span>
+</button>
+</div>
+<!-- Example Conversation (Card) -->
+<div class="bg-surface-container-lowest border border-outline-variant/10 rounded-2xl p-6 mb-stack-lg shadow-sm">
+<div class="flex flex-col gap-6">
+<!-- User Message -->
+<div class="flex gap-4 items-start justify-end">
+<div class="bg-surface-container-high text-on-surface p-4 rounded-2xl rounded-tr-sm max-w-[80%]">
+<p class="font-body-lg">What do I have today?</p>
+</div>
+</div>
+<!-- Aasha Message -->
+<div class="flex gap-4 items-start">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container shrink-0">
+<span class="material-symbols-outlined">support_agent</span>
+</div>
+<div class="bg-primary/5 text-on-surface border border-primary/10 p-4 rounded-2xl rounded-tl-sm max-w-[85%]">
+<p class="font-body-lg">You have your morning medicine at 9 AM and a doctor's appointment at 3 PM.</p>
+<!-- Mini action within context -->
+<div class="mt-4 flex gap-3">
+<button class="flex items-center gap-2 text-primary font-label-lg py-2 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">volume_up</span> Repeat
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Actions Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-stack-lg">
+<button class="flex items-center p-6 bg-surface-container-lowest border border-outline-variant/10 rounded-2xl hover:bg-surface-container-low transition-colors active:scale-95 duration-200 min-h-[80px] shadow-sm">
+<span class="material-symbols-outlined text-primary text-[40px] mr-4">notifications</span>
+<span class="font-button text-on-surface">Today's Reminders</span>
+</button>
+<button class="flex items-center p-6 bg-surface-container-lowest border border-outline-variant/10 rounded-2xl hover:bg-surface-container-low transition-colors active:scale-95 duration-200 min-h-[80px] shadow-sm">
+<span class="material-symbols-outlined text-primary text-[40px] mr-4">extension</span>
+<span class="font-button text-on-surface">Play a Game</span>
+</button>
+<button class="flex items-center p-6 bg-surface-container-lowest border border-outline-variant/10 rounded-2xl hover:bg-surface-container-low transition-colors active:scale-95 duration-200 min-h-[80px] shadow-sm">
+<span class="material-symbols-outlined text-primary text-[40px] mr-4">calendar_month</span>
+<span class="font-button text-on-surface">My Appointments</span>
+</button>
+<button class="flex items-center p-6 bg-surface-container-lowest border border-outline-variant/10 rounded-2xl hover:bg-surface-container-low transition-colors active:scale-95 duration-200 min-h-[80px] shadow-sm">
+<span class="material-symbols-outlined text-primary text-[40px] mr-4">home</span>
+<span class="font-button text-on-surface">Go Home</span>
+</button>
+</div>
+<!-- Accessibility Controls -->
+<div class="bg-surface-container rounded-2xl p-6 mb-stack-lg">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Voice Settings</h3>
+<div class="flex flex-col gap-6">
+<!-- Language -->
+<div>
+<label class="font-label-lg text-on-surface-variant block mb-3">Language</label>
+<div class="flex flex-wrap gap-3">
+<button class="flex-1 py-4 px-6 rounded-xl border-2 border-primary bg-primary-container text-on-primary-container font-button min-h-[56px]">
+                            English
+                        </button>
+<button class="flex-1 py-4 px-6 rounded-xl border-2 border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-button min-h-[56px]">
+                            অসমীয়া
+                        </button>
+</div>
+</div>
+<!-- Speed -->
+<div>
+<label class="font-label-lg text-on-surface-variant block mb-3">Speech Speed</label>
+<div class="flex flex-wrap gap-3">
+<button class="flex-1 py-4 px-6 rounded-xl border-2 border-primary bg-primary-container text-on-primary-container font-button min-h-[56px]">
+                            Normal
+                        </button>
+<button class="flex-1 py-4 px-6 rounded-xl border-2 border-outline-variant/30 bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-button min-h-[56px]">
+                            Slow
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Offline Support Indicator -->
+<div class="flex items-center justify-center gap-2 text-on-surface-variant opacity-80 mt-12">
+<span class="material-symbols-outlined text-[20px]">cloud_off</span>
+<span class="font-body-md">Basic voice help available offline</span>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center bg-surface dark:bg-surface-dim pb-safe border-t border-outline-variant/10 z-50 h-[88px] md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-150 rounded-xl">
+<span class="material-symbols-outlined mb-1 text-[28px]">home</span>
+<span class="font-label-lg text-[14px]">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-150 rounded-xl">
+<span class="material-symbols-outlined mb-1 text-[28px]">extension</span>
+<span class="font-label-lg text-[14px]">Games</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-6 py-2 hover:bg-surface-container-low transition-colors active:scale-90 duration-150 rounded-xl">
+<span class="material-symbols-outlined mb-1 text-[28px]">notifications</span>
+<span class="font-label-lg text-[14px]">Reminders</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-6 py-2 hover:bg-secondary-container/90 transition-colors active:scale-90 duration-150">
+<span class="material-symbols-outlined mb-1 text-[28px]" style="font-variation-settings: 'FILL' 1;">mic</span>
+<span class="font-label-lg text-[14px] font-bold">Voice</span>
+</button>
+</nav>
+<script>
+        // Simple interactions for prototype feel
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Add a subtle click feedback if needed beyond CSS
+            });
+        });
+    </script>
+</body></html>

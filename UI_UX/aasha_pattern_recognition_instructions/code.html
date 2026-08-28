@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aasha - Pattern Recognition Instructions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Atkinson+Hyperlegible+Next:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#a1d494",
+                      "on-error-container": "#93000a",
+                      "secondary-container": "#fe932c",
+                      "tertiary-fixed": "#e4e4cc",
+                      "surface-dim": "#d0dbed",
+                      "surface-bright": "#f8f9ff",
+                      "primary-fixed": "#bcf0ae",
+                      "on-surface": "#121c2a",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#ffdcc3",
+                      "on-primary-fixed": "#002201",
+                      "inverse-surface": "#27313f",
+                      "tertiary": "#393a29",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "on-primary-container": "#9dd090",
+                      "on-background": "#121c2a",
+                      "surface-container-high": "#dee9fc",
+                      "on-tertiary-container": "#c3c4ac",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed-variant": "#23501e",
+                      "surface-container-highest": "#d9e3f6",
+                      "surface-container-low": "#eff4ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "secondary-fixed-dim": "#ffb77d",
+                      "primary": "#154212",
+                      "on-tertiary-fixed-variant": "#474836",
+                      "on-secondary": "#ffffff",
+                      "surface-container": "#e6eeff",
+                      "outline": "#72796e",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-variant": "#d9e3f6",
+                      "error": "#ba1a1a",
+                      "on-surface-variant": "#42493e",
+                      "secondary": "#904d00",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed": "#2f1500",
+                      "on-secondary-container": "#663500",
+                      "on-tertiary-fixed": "#1b1d0e",
+                      "outline-variant": "#c2c9bb",
+                      "surface": "#f8f9ff",
+                      "primary-container": "#2d5a27",
+                      "tertiary-fixed-dim": "#c8c8b0",
+                      "tertiary-container": "#50513f",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#a1d494",
+                      "surface-tint": "#3b6934",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "touch-target-min": "56px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "stack-md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-lg": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "label-lg": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "button": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button": [
+                              "20px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-outline-variant w-full top-0 sticky z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-[72px] shadow-sm">
+<div class="flex items-center gap-4">
+<button aria-label="Go back" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-primary-container/20 rounded-full transition-transform duration-150 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary dark:text-primary-fixed">Pattern Recognition</h1>
+</div>
+<div>
+<button aria-label="Translate" class="w-touch-target-min h-touch-target-min flex items-center justify-center text-primary dark:text-primary-fixed hover:bg-primary-container/20 rounded-full transition-transform duration-150 active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">translate</span>
+</button>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg max-w-4xl space-y-stack-lg">
+<!-- Header Section -->
+<section class="text-center space-y-stack-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">Can you find what comes next?</h2>
+</section>
+<!-- Main Visual Example -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 p-stack-md flex flex-col items-center justify-center gap-stack-md shadow-sm">
+<!-- Pattern Display -->
+<div class="flex items-center justify-center gap-stack-sm flex-wrap w-full">
+<div class="w-24 h-24 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span aria-label="Apple" class="text-6xl" role="img">🍎</span>
+</div>
+<span class="material-symbols-outlined text-outline text-3xl">arrow_forward</span>
+<div class="w-24 h-24 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span aria-label="Flower" class="text-6xl" role="img">🌸</span>
+</div>
+<span class="material-symbols-outlined text-outline text-3xl">arrow_forward</span>
+<div class="w-24 h-24 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span aria-label="Apple" class="text-6xl" role="img">🍎</span>
+</div>
+<span class="material-symbols-outlined text-outline text-3xl">arrow_forward</span>
+<div class="w-24 h-24 rounded-lg bg-surface-container-high flex items-center justify-center border-2 border-dashed border-primary">
+<span class="font-headline-lg text-headline-lg text-primary">?</span>
+</div>
+</div>
+<!-- Choices -->
+<div class="flex items-center justify-center gap-stack-md flex-wrap mt-stack-sm">
+<!-- Incorrect Option 1 -->
+<div class="flex flex-col items-center gap-2">
+<button aria-label="Select Apple" class="w-28 h-28 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant hover:bg-surface-bright transition-colors active:scale-95 shadow-sm">
+<span aria-label="Apple" class="text-6xl" role="img">🍎</span>
+</button>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Apple</span>
+</div>
+<!-- Correct Option (Highlighted) -->
+<div class="flex flex-col items-center gap-2 relative">
+<!-- Highlight Indicator -->
+<div aria-hidden="true" class="absolute -top-4 -right-4 w-8 h-8 bg-secondary-container rounded-full flex items-center justify-center shadow-sm animate-bounce">
+<span class="material-symbols-outlined text-on-secondary-container text-sm font-bold" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<button aria-label="Select Flower (Correct Answer)" class="w-28 h-28 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center border-4 border-secondary-container shadow-md transition-transform transform hover:scale-105 active:scale-95">
+<span aria-label="Flower" class="text-6xl" role="img">🌸</span>
+</button>
+<span class="font-body-lg text-body-lg text-primary font-bold">Flower</span>
+</div>
+<!-- Incorrect Option 2 -->
+<div class="flex flex-col items-center gap-2">
+<button aria-label="Select Bird" class="w-28 h-28 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant hover:bg-surface-bright transition-colors active:scale-95 shadow-sm">
+<span aria-label="Bird" class="text-6xl" role="img">🐦</span>
+</button>
+<span class="font-body-lg text-body-lg text-on-surface-variant">Bird</span>
+</div>
+</div>
+</section>
+<!-- Instructions & Stats Container -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg">
+<!-- Instructions Section -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 p-stack-md shadow-sm flex flex-col gap-stack-sm">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">How to Play</h3>
+<ol class="space-y-4">
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-md text-headline-md flex-shrink-0">1</div>
+<p class="font-body-lg text-body-lg text-on-surface mt-1">Look at the pictures.</p>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-md text-headline-md flex-shrink-0">2</div>
+<p class="font-body-lg text-body-lg text-on-surface mt-1">Find the pattern.</p>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-headline-md text-headline-md flex-shrink-0">3</div>
+<p class="font-body-lg text-body-lg text-on-surface mt-1">Choose what comes next.</p>
+</li>
+</ol>
+</section>
+<!-- Game Stats -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/10 p-stack-md shadow-sm flex flex-col justify-center gap-stack-sm">
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">format_list_numbered</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Rounds</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">5</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary-container text-3xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Difficulty</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">Easy</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-lg bg-surface-container/50 border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 0;">timer</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface-variant">Time</p>
+<p class="font-body-lg text-body-lg text-on-surface font-semibold">~5 minutes</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Actions -->
+<section class="flex flex-col items-center gap-stack-sm pt-stack-sm pb-stack-lg">
+<button class="w-full max-w-sm min-h-[56px] rounded-full bg-primary text-on-primary font-button text-button shadow-md hover:bg-primary/90 active:bg-primary-container active:text-on-primary-container transition-colors duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                Start Game
+            </button>
+<button class="w-full max-w-sm min-h-[56px] rounded-full border-2 border-primary text-primary font-button text-button hover:bg-primary-container/10 active:bg-primary-container/20 transition-colors duration-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+                Hear Instructions
+            </button>
+<a class="mt-4 font-body-lg text-body-lg text-primary underline underline-offset-4 hover:text-primary/80 transition-colors py-2 px-4 rounded-lg min-h-[56px] flex items-center justify-center text-center" href="#">
+                Back to Games
+            </a>
+</section>
+</main>
+</body></html>

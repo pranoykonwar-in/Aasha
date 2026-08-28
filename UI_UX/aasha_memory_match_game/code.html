@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aasha - Memory Match Game</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&amp;family=Atkinson+Hyperlegible+Next:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#1b1d0e",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#d9e3f6",
+                      "inverse-primary": "#a1d494",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-container": "#2d5a27",
+                      "on-tertiary-fixed-variant": "#474836",
+                      "on-tertiary-container": "#c3c4ac",
+                      "tertiary-fixed-dim": "#c8c8b0",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-surface-variant": "#42493e",
+                      "secondary": "#904d00",
+                      "primary-fixed": "#bcf0ae",
+                      "surface-bright": "#f8f9ff",
+                      "on-surface": "#121c2a",
+                      "inverse-on-surface": "#eaf1ff",
+                      "primary": "#154212",
+                      "surface": "#f8f9ff",
+                      "surface-tint": "#3b6934",
+                      "primary-fixed-dim": "#a1d494",
+                      "on-background": "#121c2a",
+                      "on-primary-container": "#9dd090",
+                      "background": "#f8f9ff",
+                      "outline-variant": "#c2c9bb",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#fe932c",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#ffb77d",
+                      "secondary-fixed": "#ffdcc3",
+                      "surface-container": "#e6eeff",
+                      "tertiary": "#393a29",
+                      "surface-variant": "#d9e3f6",
+                      "on-secondary-fixed": "#2f1500",
+                      "surface-container-low": "#eff4ff",
+                      "surface-container-high": "#dee9fc",
+                      "on-primary-fixed-variant": "#23501e",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#e4e4cc",
+                      "on-secondary-container": "#663500",
+                      "tertiary-container": "#50513f",
+                      "inverse-surface": "#27313f",
+                      "on-primary-fixed": "#002201",
+                      "on-secondary-fixed-variant": "#6e3900",
+                      "outline": "#72796e",
+                      "surface-dim": "#d0dbed"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "margin-mobile": "20px",
+                      "stack-md": "24px",
+                      "margin-desktop": "64px",
+                      "stack-sm": "12px",
+                      "stack-lg": "48px",
+                      "touch-target-min": "56px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "button": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "body-md": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "label-lg": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "body-lg": [
+                              "Atkinson Hyperlegible Next"
+                      ],
+                      "headline-lg": [
+                              "Plus Jakarta Sans"
+                      ],
+                      "headline-lg-mobile": [
+                              "Plus Jakarta Sans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "button": [
+                              "20px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "30px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            backface-visibility: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        /* Hide bottom nav on this transactional screen as per instructions */
+        .bottom-nav {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center">
+<!-- Top Navigation (Task-focused, suppressed main nav) -->
+<header class="w-full flex justify-between items-center px-margin-mobile py-4 bg-background z-10 sticky top-0 md:px-margin-desktop md:max-w-2xl">
+<button class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors text-primary active:scale-95">
+<span class="material-symbols-outlined text-[32px]" data-icon="arrow_back" data-weight="fill">arrow_back</span>
+</button>
+<div class="text-headline-md font-headline-md font-bold text-primary">Games</div>
+<button class="min-w-touch-target-min min-h-touch-target-min flex items-center justify-center rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors text-primary active:scale-95">
+<span class="material-symbols-outlined text-[32px]" data-icon="pause" data-weight="fill">pause</span>
+</button>
+</header>
+<main class="w-full px-margin-mobile flex-grow flex flex-col md:max-w-2xl md:px-margin-desktop">
+<!-- Game Header -->
+<section class="mt-stack-md text-center mb-stack-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary mb-2">Memory Match</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Remember the pictures and find their pairs.</p>
+</section>
+<!-- Progress & Level -->
+<section class="flex flex-col gap-4 mb-stack-lg">
+<div class="flex justify-between items-center bg-surface-container rounded-xl p-4 border border-outline-variant/10 shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary">Progress</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Match 1 of 6</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-lg text-label-lg text-primary">Pairs found</span>
+<span class="font-headline-md text-headline-md text-secondary">0 / 6</span>
+</div>
+</div>
+<div class="flex justify-between items-center px-2">
+<span class="font-label-lg text-label-lg text-on-surface-variant bg-surface-variant px-4 py-1 rounded-full">Level: Easy</span>
+<button class="flex items-center gap-2 text-primary font-button text-button bg-primary-container/10 px-4 py-2 rounded-full hover:bg-primary-container/20 active:scale-95 transition-all min-h-[48px]">
+<span class="material-symbols-outlined" data-icon="mic" data-weight="fill">mic</span>
+                    Hear instructions
+                </button>
+</div>
+</section>
+<!-- Feedback Area -->
+<div class="h-16 flex items-center justify-center bg-secondary-container rounded-xl mb-stack-md transition-opacity opacity-0" id="feedback-area">
+<p class="font-label-lg text-label-lg text-on-secondary-container" id="feedback-message">Great! You found a pair.</p>
+</div>
+<!-- Game Grid -->
+<section class="grid grid-cols-3 gap-4 mb-stack-lg">
+<!-- Card 1 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<!-- Front (Hidden initially) -->
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img alt="Memory Match Card Symbol" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VTpNh2dvcMIFfBDMlDnqYFwtifeucqgKBsQFS0RPTLikPq9vvTYc6ooY6q0YOkxO5BBdCwtnaMTMu40dti4x6eeGpht9bDSC5fKm-8vYNI7-LcDktVRECoeMu78qreEJhwrVK_wtgm7Fjd0K7BP1gf2pyVUeZqSb4LulXrSl8T73A9hOUHoTac8Lc7qjhGwKOnifm8yRwnldVybY3cafVOl9kzOBr1QpZrqaL5S9R0_9Xkgauzm6Pmacs"/>
+</div>
+<!-- Back (Visible initially) -->
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a beautiful orchid flower native to North East India, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdhgDHzwIjErZOUF6NmrHQWHp_eHDAr2d3mqCpP-wjLMm4EeZQRn96fUcaBxpmGe-7H43Tmyg5WPMs71bqR9m9DySoxop26fBzZSvFxSarlKfN2wd1zbCrICLZ80IrLtRX5hsLnSDj9kHsw26OMlDmGpo7oKKSEo6Hdztt1vqW3swG568Ek43rrN-92OE11uh5LJ2PnYT-XJNsnjAS4O56ZagSwSe5lFbME3Ecj843hKVy5TyNigw-CQ"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img alt="Memory Match Card Symbol" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VTpNh2dvcMIFfBDMlDnqYFwtifeucqgKBsQFS0RPTLikPq9vvTYc6ooY6q0YOkxO5BBdCwtnaMTMu40dti4x6eeGpht9bDSC5fKm-8vYNI7-LcDktVRECoeMu78qreEJhwrVK_wtgm7Fjd0K7BP1gf2pyVUeZqSb4LulXrSl8T73A9hOUHoTac8Lc7qjhGwKOnifm8yRwnldVybY3cafVOl9kzOBr1QpZrqaL5S9R0_9Xkgauzm6Pmacs"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a traditional bamboo hat from North East India, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1FVPfyM-x72cOYF9JoEntPhakTxWyJk4bjXoNw4qdbv0iPetehAEAmrbQoJGy0VGzazI3NG1faqfusuhIyIl6GAu9WedU6Dle8vwHTDcXOlqBiXEqZ6pykt-gK5Rga3PgPrXaoR9uyqhwHCbdhbCK66BThrrOZ6JHWmY60jvGJwgsF_Mn8XJFzpqzvtJqXpO9q8pqkc1fiAABAVtXv289XuKDSMx9WQWdaWsFmxj3e_1sqw4WDsawbA"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a vibrant Hornbill bird, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD95O4H0rQxVCGZKNcVboQU47WO1EvGGzojdTGKCEvrsm8xQl1HThtLhKIvF3wg-nBFvvFGYvM3lyGLL9hX87gSe3bA8mo3NQFZxPtBMITCbVmXHL81WNJDT3mosDP-GhxeYDv6sMxL_qyRzpiNtSINUQMQ8Qs9C7k9hPLJyrQqKW9QKn3GS6_mZmpi4aK6be4JTFnaZtFlYvawuWmCYZxcx5bW1SsDJE1oRCWacmA2vcA1-UUqNW1jYA"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a traditional Assamese Gamosa cloth with red and white patterns, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxre7InjqxHFfsPdqKEuS3sHYkrY3fLAcf_sqREtF1cGFCPiyDc07uGHQik50Hyeupec1p6ZdMyVazVTB4WP1OK60FbB27V1zOCdo6v-zKcMuN-xghSDGVUCHBPb4umNmtvyNe3-wUJtN4ixDRh4kc3Eq5Si_SEC42ltMW2UJHcJANDsvqDKVrGJPpUC6S14MtN3Ez2shJFy7ByqzrxKZKAU9B3-dLALnhhD-V1QwXcQWEM2Tlhbx3Jg"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a traditional Assamese Gamosa cloth with red and white patterns, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9LJ0zXTDeVhA4SIcoIVJeVSgBlQEpztpjPIZ1cWSc7LbAvtMSkiZacfC1InE5jJGxEQG_wpy31ypTUQ1VtPpEwJANqHxeOABkgd6BqUW4JwfOkNQDcCmvGoXTH1YPA9dRpPgThSQm88IU1eOfaJTdqyDs2XfPySD6vi5z-WLXumQtgZQuxsZrDTjTyynjecyTJWvImwSOL_tTVvZrey575OpwttXUlEedxfylJHoDGa70h0lW90hI-w"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a traditional bamboo hat from North East India, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZDwAfxty9WidYHFs3A0u7638WNR1dxg2juOLvkzSOoU6XJqRMIgsMJjQj_FeysRdtq23dLkcDlK8AKQmwMELljHDTIlnLz05ocEmxjWtCJjg_kEjOjXGIEt5uxVqdTtYJVCW5_GUAgraMNh1fWNq_g65fpKJ4nNU2HagcUQpx_4zC0z7sYx6lCX7YFpLDOuYDIdqVEPbByEVBbH9LXi7NrDzWrXeovOE7MGlHrBQ-60eZX_GsoHlv1A"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 9 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a beautiful orchid flower native to North East India, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxTs8c74wEs2oD6Uirsum5dozh1Wbhh7KRrH1R8jcvjy-jcTY5yBhL2wrlnNyyp93T-S0M3SjPMLVaNDyPhI6IxMxgzE1w7z5iW2iXFPUWnNccS8E-JUDBt7Vr2QLQOvomy0HM_ULXfteaLouS1EgbXoWvUZYCSPaiyHGtMXsQbSpuOEVhr8KJEs30Qxevklv7I--t5QmJBMXSIaV-0LTRoM6HQeBENhHfcmwa5jzO8ffVa5hG89R6bg"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 10 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a traditional cup of tea, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWc8chCx6DwVIUriGSMkqurK7828JAGjHJgnCvE3oZdHNDtXYEohD6AC5CFopDkZH6v-Oqu3s-0oTUrjh97zdATPsVOND9OCWjlLqE19YIqGNZGHuiFW5mOGftH6PRqQapaAyAghS0KbNEoxlKq92vAWCYWoXz5LdqUG8GmiEqWMKSjcPovylI2UcSNBYJbfkEi133A9XbSZbY6vvwyTVIFhUPgkuNSNQ0EsIqHjuPS0F1KgsfhKMpaQ"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 11 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a traditional cup of tea, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSaH0ehKANeQ_IiiwbMCdEBNIZA6F1RNEiBfu1o43s46RElssytsa6kYyd0fO2at5g5d5GrYFG2LG9dNZgFB8wyS87vUDpE8NwBFyQJXeifZmTf6Axh7QsSKjibW83cWH-Qnp_YFquD_R5HoprGwmFc9XpeRP2GnN0gM85goA8NRcwHHA_Xaju6aM-eDKLTvaFUhbJWSRf8alq2IM1I3PMpayif3yJt5qEQXTVAin92OZFB8w39hVD9A"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+<!-- Card 12 -->
+<div class="card relative w-full aspect-[3/4] cursor-pointer" onclick="this.classList.toggle('flipped')">
+<div class="card-inner w-full h-full absolute">
+<div class="card-back w-full h-full absolute rounded-xl overflow-hidden border-2 border-primary-container shadow-md">
+<img class="w-full h-full object-cover" data-alt="A detailed, colorful illustration of a vibrant Hornbill bird, set against a warm, light cream background. The style is modern, friendly, and soft with rounded edges, designed for an elderly cognitive game. High contrast and vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCwsm41bUBgYiSu8X-LjWvH9bUvCeNQVDBP_ItHt_mH2GQKQFs5NzFYtuAcq7McisTLmszrpi-74O2UBP68meJi2njtWZnRib0MFmKHEgk5bMJjPvIPej6bMLI0IPMG7v5EmM4ywr4owebpX3-ZlFlAbCr4szEMUumsj6Ju3Ivif9JFCwoWHbiqioVzCKzwcQM1ul5x1v6BPO27DcMyJuAPfI_5OkGIC-NC0ZmZaZsBZbh5h0go8TaNw"/>
+</div>
+<div class="card-front w-full h-full absolute bg-surface-container-high rounded-xl border-2 border-outline-variant shadow-sm flex items-center justify-center hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[48px] text-primary/50" data-icon="help">help</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom padding for scrolling -->
+<div class="h-8"></div>
+</main>
+<script>
+        // Simple mock feedback logic for demonstration
+        const cards = document.querySelectorAll('.card');
+        let flippedCount = 0;
+        const feedbackArea = document.getElementById('feedback-area');
+        
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                flippedCount++;
+                if (flippedCount === 2) {
+                    feedbackArea.classList.remove('opacity-0');
+                    setTimeout(() => {
+                        feedbackArea.classList.add('opacity-0');
+                        flippedCount = 0;
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body></html>

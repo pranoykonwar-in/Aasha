@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Aasha - Sign In</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Atkinson+Hyperlegible+Next:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "surface-container-highest": "#d9e3f6",
+                        "on-surface": "#121c2a",
+                        "inverse-primary": "#a1d494",
+                        "primary-container": "#2d5a27",
+                        "tertiary": "#393a29",
+                        "on-background": "#121c2a",
+                        "surface-dim": "#d0dbed",
+                        "inverse-surface": "#27313f",
+                        "surface-container-high": "#dee9fc",
+                        "tertiary-container": "#50513f",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed-variant": "#6e3900",
+                        "tertiary-fixed": "#e4e4cc",
+                        "on-tertiary-container": "#c3c4ac",
+                        "on-primary-container": "#9dd090",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c2c9bb",
+                        "on-primary-fixed": "#002201",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#bcf0ae",
+                        "surface-variant": "#d9e3f6",
+                        "secondary": "#904d00",
+                        "on-secondary-fixed": "#2f1500",
+                        "primary": "#154212",
+                        "surface-container": "#e6eeff",
+                        "outline": "#72796e",
+                        "secondary-fixed-dim": "#ffb77d",
+                        "on-surface-variant": "#42493e",
+                        "on-secondary-container": "#663500",
+                        "primary-fixed-dim": "#a1d494",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "on-primary-fixed-variant": "#23501e",
+                        "secondary-container": "#fe932c",
+                        "surface": "#f8f9ff",
+                        "background": "#f8f9ff",
+                        "surface-tint": "#3b6934",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed": "#ffdcc3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "margin-desktop": "64px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "gutter": "24px",
+                        "touch-target-min": "56px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-lg": ["Atkinson Hyperlegible Next"],
+                        "button": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Atkinson Hyperlegible Next"],
+                        "body-lg": ["Atkinson Hyperlegible Next"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-lg": ["18px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "button": ["20px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "30px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col items-center justify-start pb-[100px] md:pb-0 overflow-x-hidden pt-margin-mobile px-margin-mobile">
+<div class="w-full max-w-md flex flex-col flex-1 pb-margin-mobile">
+<!-- Header Section -->
+<header class="flex flex-col items-center justify-center pt-8 pb-12 w-full">
+<div class="w-24 h-24 mb-6 rounded-full bg-surface-container flex items-center justify-center p-2 shadow-sm border border-outline-variant/30">
+<img alt="Aasha Logo" class="w-full h-full object-contain rounded-full" src="https://lh3.googleusercontent.com/aida/AEtjO1WHTDUg1WvSKWpWaFpQECn3ZCflGotG0lSf8sQVwEMy8JRdDjWTHhXgJDaZ-Q5zBx2rlqBXT_tDsKD1q4VV0KgqHEhvLLVRLVs3VZmig3fyKGFE1Gj9nO3iC5xVl6Iry2k3PPn1LG71csmE6He4JMOHBoXpBzmKuBV-3hwcRRtnpY-r5BERtmXbFXEmVtuyjeu2l7zeYxvjDA9H9zGizboxeKDq3eRrrJOOcY4JlVdYZOViO02VoUEyTkKm"/>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary text-center mb-2">Welcome back</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant text-center">Let's continue your journey</p>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full flex flex-col gap-stack-md bg-surface p-6 rounded-3xl shadow-sm border border-outline-variant/20 relative z-10">
+<!-- Error State (Hidden by default) -->
+<div class="hidden bg-error-container text-on-error-container p-4 rounded-xl flex items-center gap-4 transition-all duration-300 transform scale-95 opacity-0" id="error-message">
+<span class="material-symbols-outlined text-error icon-filled">error</span>
+<span class="font-body-md text-body-md">Please check your details and try again</span>
+</div>
+<!-- Role Selection -->
+<section class="flex flex-col gap-4">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Who are you?</h2>
+<div class="grid grid-cols-1 gap-4">
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="role" type="radio" value="elder"/>
+<div class="p-6 rounded-2xl border-2 border-surface-container bg-surface-container peer-checked:border-primary peer-checked:bg-surface transition-all flex items-center gap-6 min-h-[80px]">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 text-primary flex items-center justify-center peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[32px]">elderly</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Elder / Patient</span>
+</div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="role" type="radio" value="caregiver"/>
+<div class="p-6 rounded-2xl border-2 border-surface-container bg-surface-container peer-checked:border-primary peer-checked:bg-surface transition-all flex items-center gap-6 min-h-[80px]">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 text-primary flex items-center justify-center peer-checked:bg-primary peer-checked:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[32px]">volunteer_activism</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-surface">Caregiver</span>
+</div>
+</label>
+</div>
+</section>
+<hr class="border-outline-variant/30 my-4 w-1/2 mx-auto"/>
+<!-- Input Fields -->
+<form class="flex flex-col gap-stack-md" id="signin-form" onsubmit="event.preventDefault(); showError();">
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface" for="email">Email or phone number</label>
+<input class="w-full min-h-[touch-target-min] px-4 py-4 rounded-xl border-2 border-outline-variant bg-surface-container-lowest text-on-surface font-body-lg text-body-lg focus:border-secondary-container focus:ring-0 focus:outline-none transition-colors" id="email" placeholder="" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface" for="password">Password</label>
+<div class="relative w-full">
+<input class="w-full min-h-[touch-target-min] pl-4 pr-16 py-4 rounded-xl border-2 border-outline-variant bg-surface-container-lowest text-on-surface font-body-lg text-body-lg focus:border-secondary-container focus:ring-0 focus:outline-none transition-colors" id="password" placeholder="" type="password"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 min-w-[48px] min-h-[48px] flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-secondary-container" onclick="togglePassword()" type="button">
+<span class="material-symbols-outlined" id="password-toggle-icon">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="flex justify-end mt-[-8px]">
+<a class="font-body-md text-body-md text-primary font-semibold hover:underline p-2 min-h-[48px] flex items-center" href="#">Forgot password?</a>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-4 mt-4">
+<button class="w-full min-h-[64px] bg-primary text-on-primary font-button text-button rounded-full shadow-md active:scale-[0.98] transition-transform flex items-center justify-center gap-3" type="submit">
+                        Sign In
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full min-h-[touch-target-min] border-2 border-primary text-primary font-button text-button rounded-full active:bg-primary-container/20 transition-colors flex items-center justify-center gap-3 mt-2" type="button">
+<span class="material-symbols-outlined icon-filled">mic</span>
+                        Need help signing in?
+                    </button>
+</div>
+</form>
+<!-- Language Selector -->
+<div class="mt-8 flex justify-center items-center gap-4 border-t border-outline-variant/30 pt-8">
+<span class="material-symbols-outlined text-on-surface-variant">translate</span>
+<div class="flex gap-4">
+<button class="font-body-md text-body-md text-primary font-bold underline decoration-2 underline-offset-4 p-2 min-h-[48px]">English</button>
+<span class="text-outline-variant py-2 min-h-[48px] flex items-center">|</span>
+<button class="font-body-md text-body-md text-on-surface-variant hover:text-primary p-2 min-h-[48px]">অসমীয়া</button>
+</div>
+</div>
+</main>
+<!-- Decorative Background Elements for warmth -->
+<div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-secondary-fixed/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+<div class="fixed bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] bg-primary-fixed/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+</div>
+<script>
+        function togglePassword() {
+            const pwdInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('password-toggle-icon');
+            if (pwdInput.type === 'password') {
+                pwdInput.type = 'text';
+                toggleIcon.textContent = 'visibility';
+            } else {
+                pwdInput.type = 'password';
+                toggleIcon.textContent = 'visibility_off';
+            }
+        }
+
+        function showError() {
+            const errorMsg = document.getElementById('error-message');
+            errorMsg.classList.remove('hidden');
+            // Small delay to allow display:block to apply before animating opacity
+            setTimeout(() => {
+                errorMsg.classList.remove('opacity-0', 'scale-95');
+                errorMsg.classList.add('opacity-100', 'scale-100');
+            }, 10);
+            
+            // Highlight inputs briefly
+            const inputs = document.querySelectorAll('input[type="text"], input[type="password"]');
+            inputs.forEach(input => {
+                const originalBorder = input.className;
+                input.classList.remove('border-outline-variant');
+                input.classList.add('border-error');
+                setTimeout(() => {
+                    input.classList.remove('border-error');
+                    input.classList.add('border-outline-variant');
+                }, 2000);
+            });
+        }
+    </script>
+</body></html>
